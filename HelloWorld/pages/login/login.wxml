@@ -1,0 +1,31 @@
+<view class='page'>
+  <view class='page_hd'>
+    <view class='page_title'>Mini Program with Flask</view>
+  </view>
+  <view class='page_bd'>
+    <form bindsubmit='formSubmit' bindreset='formSubmit'>
+      <view class='weui-cells'>
+        <view class='weui-cell weui-cell_input'>
+          <view class='weui-cell_hd'>
+            <view class='weui-label'>Email</view>
+          </view>
+          <view class='weui-cell_bd'>
+            <input class='weui-input' placeholder='Please input email' name='email' />
+          </view>
+        </view>
+        <view class='weui-cell weui-cell_input'>
+          <view class='weui-cell_hd'>
+            <view class='weui-label'>Password</view>
+          </view>
+          <view class='weui-cell_bd'>
+            <input class='weui-input' placeholder='Please input password' name='password' password />
+          </view>
+        </view>
+      </view>
+      <view class='weui-btn-area'>
+        <button class='weui-btn' type='primary' form-type='submit'>Login</button>
+        <button class='weui-btn' form-type='reset'>Reset</button>
+      </view>
+    </form>
+  </view>
+</view>
