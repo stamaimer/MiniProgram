@@ -13,23 +13,25 @@ App({
   checkLoginStatus: function () {
 
     let that = this;
-    let isLogin = wx.getStorageSync('isLogin')
+    let loginFlag = wx.getStorageSync('loginFlag');
 
-    if (isLogin) {
+    if (loginFlag) {
 
       wx.checkSession({
         
         success: function () {
            
-          let userInfo = wx.getStorageInfoSync('userInfo')
+          let userInfo = wx.getStorageInfoSync('userInfo');
 
           if (userInfo) {
 
-            that.gloablData.userInfo = JSON.parse(userInfo)
+            that.gloablData.userInfo = JSON.parse(userInfo);
 
           } else {
 
-            console.error('')
+            that.showInfo('缓存信息失效');
+
+            console.error('缓存信息失效');
 
           }
         },
@@ -40,7 +42,7 @@ App({
 
         }
 
-      })  
+      });  
 
     } else {
 
@@ -68,7 +70,9 @@ App({
               console.log(infoRes)
 
               wx.request({
+
                 url: 'http://139.199.167.51/login',
+
                 data: {
                   code: loginRes.code,
                   rawData: infoRes.rawData,
@@ -79,7 +83,17 @@ App({
 
                 success: function (res) {
 
+                  console.log('login success');
 
+                  console.log(res);
+
+                  res = res.data
+
+                  if (res.result == 0) {
+
+
+
+                  }
 
                 },
 
